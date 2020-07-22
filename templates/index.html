@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<h1>Ten Sentences</h1>
+<div class="form">
+  <form action="/" method="POST">
+    <input type="text" name="article" id="article">
+    <input type="submit" value="Rank">
+  </form>
+</div>
+
+<div>
+  {% if sentences %}
+    {% for sentence in sentences %}
+    <p>
+      {{ loop.index }}. {{ sentence }}
+    </p>
+    {% endfor %}
+  {% else %}
+    <p>Error: 402</p>
+  {% endif %}
+</div>
+{% endblock %}
